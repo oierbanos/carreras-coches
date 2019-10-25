@@ -19,16 +19,16 @@ var myObstacle;
 function startGame() {
     myGamePiece = new component(30, 60, "green", 225, 225);
     myGamePiece1 = new component(30, 60, "red", 225, 225);
-    myObstacle = new component(10, 200, "red", 30, 220);
-    myObstacle1 = new component(10, 200, "green", 300, 120);
+    myObstacle = new component(60, 60, "red", 250, 100);
+    myObstacle1 = new component(60, 60, "green", 500, 250);
     myGameArea.start();
 }
 
 var myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
-        this.canvas.width = 1350;
-        this.canvas.height = 635;
+        this.canvas.width = 900;
+        this.canvas.height = 400;
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.frameNo = 0;
@@ -95,6 +95,8 @@ function component(width, height, color, x, y, type) {
     }
     return crash;
   }
+
+
 }
 
 function updateGameArea() {
@@ -109,13 +111,15 @@ function updateGameArea() {
     myGamePiece.speed = 0;
   }
 
-    if (myGameArea.keys && myGameArea.keys[87]) {myGamePiece.speed= 2; 
-     if (myGameArea.keys && myGameArea.keys[65]) {myGamePiece.moveAngle = -1; }
-    if (myGameArea.keys && myGameArea.keys[68]) {myGamePiece.moveAngle = 1; }
+
+
+    if (myGameArea.keys && myGameArea.keys[87]) {myGamePiece.speed= 4; 
+     if (myGameArea.keys && myGameArea.keys[65]) {myGamePiece.moveAngle = -2; }
+    if (myGameArea.keys && myGameArea.keys[68]) {myGamePiece.moveAngle = 2; }
     }
-    if (myGameArea.keys && myGameArea.keys[83]) {myGamePiece.speed= -1; 
-     if (myGameArea.keys && myGameArea.keys[65]) {myGamePiece.moveAngle = 1; }
-    if (myGameArea.keys && myGameArea.keys[68]) {myGamePiece.moveAngle = -1; }
+    if (myGameArea.keys && myGameArea.keys[83]) {myGamePiece.speed= -2; 
+     if (myGameArea.keys && myGameArea.keys[65]) {myGamePiece.moveAngle = 2; }
+    if (myGameArea.keys && myGameArea.keys[68]) {myGamePiece.moveAngle = -2; }
     }
     myGamePiece.newPos();
     myGamePiece.update();
@@ -124,13 +128,13 @@ function updateGameArea() {
     myGamePiece1.speed = 0;
 
 
-    if (myGameArea.keys && myGameArea.keys[38]) {myGamePiece1.speed= 2; 
-     if (myGameArea.keys && myGameArea.keys[37]) {myGamePiece1.moveAngle = -1; }
-    if (myGameArea.keys && myGameArea.keys[39]) {myGamePiece1.moveAngle = 1; }
+    if (myGameArea.keys && myGameArea.keys[38]) {myGamePiece1.speed= 3; 
+     if (myGameArea.keys && myGameArea.keys[37]) {myGamePiece1.moveAngle = -2; }
+    if (myGameArea.keys && myGameArea.keys[39]) {myGamePiece1.moveAngle = 2; }
     }
-    if (myGameArea.keys && myGameArea.keys[40]) {myGamePiece1.speed= -1; 
-     if (myGameArea.keys && myGameArea.keys[37]) {myGamePiece1.moveAngle = 1; }
-    if (myGameArea.keys && myGameArea.keys[39]) {myGamePiece1.moveAngle = -1; }
+    if (myGameArea.keys && myGameArea.keys[40]) {myGamePiece1.speed= -2; 
+     if (myGameArea.keys && myGameArea.keys[37]) {myGamePiece1.moveAngle = 2; }
+    if (myGameArea.keys && myGameArea.keys[39]) {myGamePiece1.moveAngle = -2; }
     }
     myGamePiece1.newPos();
     myGamePiece1.update();
