@@ -1,3 +1,5 @@
+console.log("hola, si ves esto en la consola es que el navegador ha detectado el archivo");
+
 var myGamePiece;
 var myGamePiece1;
 var myObstacle;
@@ -68,8 +70,8 @@ function component(width, height, color, x, y, type) {
     var myright = this.x + (this.width);
     var mytop = this.y;
     var mybottom = this.y + (this.height);
-    var otherleft = otherobj.x;
-    var otherright = otherobj.x + (otherobj.width);
+    var otherleft = otherobj.x - (this.width);
+    var otherright = otherobj.x + (otherobj.width) - this.width;
     var othertop = otherobj.y;
     var otherbottom = otherobj.y + (otherobj.height);
     var crash = true;
