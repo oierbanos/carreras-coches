@@ -1,17 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<style>
-canvas {
-    border:1px solid #d3d3d3;
-    background-color: #f1f1f1;
-}
-</style>
-</head>
-<body onload="startGame()">
+console.log("hola, si ves esto en la consola es que el navegador ha detectado el archivo");
 
-<script>
 var myGamePiece;
 var myGamePiece1;
 var myObstacle;
@@ -28,7 +16,7 @@ var myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
         this.canvas.width = 900;
-        this.canvas.height = 400;
+        this.canvas.height = 506;
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.frameNo = 0;
@@ -44,7 +32,7 @@ var myGameArea = {
     },
     stop : function() {
         clearInterval(this.interval);
-    },    
+    },
     clear : function() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     },
@@ -62,7 +50,7 @@ function component(width, height, color, x, y, type) {
     this.angle = 0;
     this.moveAngle = 0;
     this.x = x;
-    this.y = y;    
+    this.y = y;
     this.update = function() {
         ctx = myGameArea.context;
         ctx.save();
@@ -70,7 +58,7 @@ function component(width, height, color, x, y, type) {
         ctx.rotate(this.angle);
         ctx.fillStyle = color;
         ctx.fillRect(this.width / -2, this.height / -2, this.width, this.height);
-        ctx.restore();    
+        ctx.restore();
     }
     this.newPos = function() {
         this.angle += this.moveAngle * Math.PI / 180;
@@ -82,15 +70,13 @@ function component(width, height, color, x, y, type) {
     var myright = this.x + (this.width);
     var mytop = this.y;
     var mybottom = this.y + (this.height);
-    var otherleft = otherobj.x;
+    var otherleft = otherobj.x + (this.width);
     var otherright = otherobj.x + (otherobj.width);
     var othertop = otherobj.y;
     var otherbottom = otherobj.y + (otherobj.height);
     var crash = true;
-    if ((mybottom < othertop) ||
-    (mytop > otherbottom) ||
-    (myright < otherleft) ||
-    (myleft > otherright)) {
+    if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright))
+    {
       crash = false;
     }
     return crash;
@@ -113,33 +99,29 @@ function updateGameArea() {
 
 
 
-    if (myGameArea.keys && myGameArea.keys[87]) {myGamePiece.speed= 4; 
+    if (myGameArea.keys && myGameArea.keys[87]) {myGamePiece.speed= 4;
      if (myGameArea.keys && myGameArea.keys[65]) {myGamePiece.moveAngle = -2; }
     if (myGameArea.keys && myGameArea.keys[68]) {myGamePiece.moveAngle = 2; }
     }
-    if (myGameArea.keys && myGameArea.keys[83]) {myGamePiece.speed= -2; 
+    if (myGameArea.keys && myGameArea.keys[83]) {myGamePiece.speed= -2;
      if (myGameArea.keys && myGameArea.keys[65]) {myGamePiece.moveAngle = 2; }
     if (myGameArea.keys && myGameArea.keys[68]) {myGamePiece.moveAngle = -2; }
     }
     myGamePiece.newPos();
     myGamePiece.update();
-    
+
         myGamePiece1.moveAngle = 0;
     myGamePiece1.speed = 0;
 
 
-    if (myGameArea.keys && myGameArea.keys[38]) {myGamePiece1.speed= 3; 
+    if (myGameArea.keys && myGameArea.keys[38]) {myGamePiece1.speed= 4;
      if (myGameArea.keys && myGameArea.keys[37]) {myGamePiece1.moveAngle = -2; }
     if (myGameArea.keys && myGameArea.keys[39]) {myGamePiece1.moveAngle = 2; }
     }
-    if (myGameArea.keys && myGameArea.keys[40]) {myGamePiece1.speed= -2; 
+    if (myGameArea.keys && myGameArea.keys[40]) {myGamePiece1.speed= -2;
      if (myGameArea.keys && myGameArea.keys[37]) {myGamePiece1.moveAngle = 2; }
     if (myGameArea.keys && myGameArea.keys[39]) {myGamePiece1.moveAngle = -2; }
     }
     myGamePiece1.newPos();
     myGamePiece1.update();
 }
-</script>
-
-</body>
-</html>
