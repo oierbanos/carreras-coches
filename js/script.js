@@ -70,8 +70,8 @@ function component(width, height, color, x, y, type) {
     var myright = this.x + (this.width);
     var mytop = this.y;
     var mybottom = this.y + (this.height);
-    var otherleft = otherobj.x - (this.width);
-    var otherright = otherobj.x + (otherobj.width) - this.width;
+    var otherleft = otherobj.x + (this.width);
+    var otherright = otherobj.x + (otherobj.width);
     var othertop = otherobj.y;
     var otherbottom = otherobj.y + (otherobj.height);
     var crash = true;
@@ -114,7 +114,7 @@ function updateGameArea() {
     myGamePiece1.speed = 0;
 
 
-    if (myGameArea.keys && myGameArea.keys[38]) {myGamePiece1.speed= 3;
+    if (myGameArea.keys && myGameArea.keys[38]) {myGamePiece1.speed= 4;
      if (myGameArea.keys && myGameArea.keys[37]) {myGamePiece1.moveAngle = -2; }
     if (myGameArea.keys && myGameArea.keys[39]) {myGamePiece1.moveAngle = 2; }
     }
