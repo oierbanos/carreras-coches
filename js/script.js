@@ -5,8 +5,8 @@ var myGamePiece1;
 var myObstacle;
 
 function startGame() {
-    myGamePiece = new component(60, 60, "download.png", 225, 225, "image");
-    myGamePiece1 = new component(30, 60, "red", 225, 225);
+    myGamePiece = new component(60, 60, "img/hamster.png", 225, 225, "image");
+    myGamePiece1 = new component(60, 60, "img/hamster2.png", 200, 225, "image");
     myObstacle = new component(60, 60, "red", 250, 100);
     myObstacle1 = new component(60, 60, "green", 500, 250);
     myGameArea.start();
@@ -15,8 +15,8 @@ function startGame() {
 var myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
-        this.canvas.width = 900;
-        this.canvas.height = 506;
+        this.canvas.width = 1200;
+        this.canvas.height = 600;
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.frameNo = 0;
