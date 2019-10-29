@@ -16,7 +16,7 @@ var myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
         this.canvas.width = 900;
-        this.canvas.height = 400;
+        this.canvas.height = 506;
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.frameNo = 0;
@@ -75,10 +75,8 @@ function component(width, height, color, x, y, type) {
     var othertop = otherobj.y;
     var otherbottom = otherobj.y + (otherobj.height);
     var crash = true;
-    if ((mybottom < othertop) ||
-    (mytop > otherbottom) ||
-    (myright < otherleft) ||
-    (myleft > otherright)) {
+    if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright))
+    {
       crash = false;
     }
     return crash;
