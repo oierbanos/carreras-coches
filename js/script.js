@@ -68,27 +68,27 @@ function component(width, height, color, x, y, type) {
       ctx.fillRect(this.x, this.y, this.width, this.height);
     }
 
-      //  ctx.save();
-      //  ctx.translate(this.x, this.y);
-      //  ctx.rotate(this.angle);
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.angle);
         //ctx.fillStyle = color;
-      //  ctx.fillRect(this.width / -2, this.height / -2, this.width, this.height);
-        //ctx.restore();
+
+        ctx.restore();
     }
     this.newPos = function() {
         this.angle += this.moveAngle * Math.PI / 180;
         this.x += this.speed * Math.sin(this.angle);
         this.y -= this.speed * Math.cos(this.angle);
     }
-      this.crashWith = function(otherobj) {
-    var myleft = this.x;
-    var myright = this.x + (this.width);
-    var mytop = this.y;
-    var mybottom = this.y + (this.height);
-    var otherleft = otherobj.x + (this.width);
-    var otherright = otherobj.x + (otherobj.width);
-    var othertop = otherobj.y;
-    var otherbottom = otherobj.y + (otherobj.height);
+    this.crashWith = function(otherobj) {
+  var myleft = this.x - (this.width / 2);
+  var myright = this.x + (this.width / 2);
+  var mytop = this.y - (this.height / 2);
+  var mybottom = this.y + (this.height / 2);
+  var otherleft = otherobj.x - (otherobj.width / 2);
+  var otherright = otherobj.x + (otherobj.width / 2);
+  var othertop = otherobj.y - (otherobj.height / 2)
+  var otherbottom = otherobj.y + (otherobj.height / 2);
     var crash = true;
     if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright))
     {
