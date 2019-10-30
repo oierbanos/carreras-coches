@@ -9,7 +9,7 @@ body {
 
 div {
 	position: relative;
-	top: 46px;
+	/*top: 46px;*/
 }
 
 div#title {
@@ -52,7 +52,7 @@ div#links {
 	font-size: 28px;
 	text-align: center;
 	position: relative;
-	top: 10px;
+	top: -20px;
 }
 
 span.Zeldas {
