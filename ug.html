@@ -97,16 +97,20 @@ function component(width, height, color, x, y, type) {
 
 function updateGameArea() {
 
- if (myGamePiece.crashWith(myObstacle)||myGamePiece1.crashWith(myObstacle1)) {
+ if (myGamePiece.crashWith(myObstacle)) {
+    myGameArea.stop();
+  } else if(myGamePiece1.crashWith(myObstacle1))
+   {
     myGameArea.stop();
   } else {
+
     myGameArea.clear();
     myObstacle.update();
     myObstacle1.update();
-  myGamePiece1.speedX = 0;
-  myGamePiece1.speedY = 0;
-  myGamePiece.speedX = 0;
-  myGamePiece.speedY = 0;
+    myGamePiece1.speedX = 0;
+    myGamePiece1.speedY = 0;
+    myGamePiece.speedX = 0;
+    myGamePiece.speedY = 0;
   }
 
 
