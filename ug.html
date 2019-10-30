@@ -124,43 +124,30 @@ function updateGameArea() {
     myObstacle1.update();
     myGamePiece.moveAngle = 0;
     myGamePiece.speed = 0;
-
+    myGamePiece1.moveAngle = 0;
+    myGamePiece1.speed = 0;
+ myGamePiece1.speedX = 0;
+  myGamePiece1.speedY = 0;
   myGamePiece.speedX = 0;
   myGamePiece.speedY = 0;
   }
 
 
-
-    /*if (myGameArea.keys && myGameArea.keys[87]) {myGamePiece.speed= 4;
-     if (myGameArea.keys && myGameArea.keys[65]) {myGamePiece.moveAngle = -2; }
-    if (myGameArea.keys && myGameArea.keys[68]) {myGamePiece.moveAngle = 2; }
-    }
-    if (myGameArea.keys && myGameArea.keys[83]) {myGamePiece.speed= -2;
-     if (myGameArea.keys && myGameArea.keys[65]) {myGamePiece.moveAngle = 2; }
-    if (myGameArea.keys && myGameArea.keys[68]) {myGamePiece.moveAngle = -2; }
-    }*/
-
-  if (myGameArea.keys && myGameArea.keys[37]) {myGamePiece.speedX = -1; }
-  if (myGameArea.keys && myGameArea.keys[39]) {myGamePiece.speedX = 1; }
-  if (myGameArea.keys && myGameArea.keys[38]) {myGamePiece.speedY = -1; }
-  if (myGameArea.keys && myGameArea.keys[40]) {myGamePiece.speedY = 1; }
+  if (myGameArea.keys && myGameArea.keys[37]) {myGamePiece.speedX = -4; }
+  if (myGameArea.keys && myGameArea.keys[39]) {myGamePiece.speedX = 4; }
+  if (myGameArea.keys && myGameArea.keys[38]) {myGamePiece.speedY = -4; }
+  if (myGameArea.keys && myGameArea.keys[40]) {myGamePiece.speedY = 4; }
     myGamePiece.newPos();
     myGamePiece.update();
 
-        myGamePiece1.moveAngle = 0;
-    myGamePiece1.speed = 0;
 
-
-    if (myGameArea.keys && myGameArea.keys[38]) {myGamePiece1.speed= 3;
-     if (myGameArea.keys && myGameArea.keys[37]) {myGamePiece1.moveAngle = -2; }
-    if (myGameArea.keys && myGameArea.keys[39]) {myGamePiece1.moveAngle = 2; }
-    }
-    if (myGameArea.keys && myGameArea.keys[40]) {myGamePiece1.speed= -2;
-     if (myGameArea.keys && myGameArea.keys[37]) {myGamePiece1.moveAngle = 2; }
-    if (myGameArea.keys && myGameArea.keys[39]) {myGamePiece1.moveAngle = -2; }
-    }
+      if (myGameArea.keys && myGameArea.keys[65]) {myGamePiece1.speedX = -4; }
+  if (myGameArea.keys && myGameArea.keys[68]) {myGamePiece1.speedX = 4; }
+  if (myGameArea.keys && myGameArea.keys[87]) {myGamePiece1.speedY = -4; }
+  if (myGameArea.keys && myGameArea.keys[83]) {myGamePiece1.speedY = 4; }
     myGamePiece1.newPos();
     myGamePiece1.update();
+
 }
 </script>
 
