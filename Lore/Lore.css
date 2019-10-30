@@ -2,3 +2,26 @@ body {
 	background-color: rgb(85, 85, 85);
 	color: white;
 }
+
+a {
+	position: fixed;
+	top: 600px;
+}
+
+a:link, a:visited {
+	color: white;
+	text-decoration: none;
+	border-style: groove;
+	border-width: 4px;
+	padding: 10px;
+	border-radius: 100px;
+}
+
+a:hover, a:active {
+	color: rgb(2, 205, 255);
+	text-decoration: none;
+	border-width: 6px;
+	border-style: groove;
+	padding: 7px;
+	border-color: rgb(2, 205, 255);
+}
