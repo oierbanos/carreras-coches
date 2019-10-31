@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+canvas {
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+}
+</style>
+</head>
+<body onload="startGame()">
+
+<script>
+
+//RATAS
+var copito;
+var rayas;
+//fondo
+var myBackground;
+//Rectangulos largos
+var myObstacleDERECHA;
+var myObstacleARRIBA;
+var myObstacleIZQUIERDA;
+var myObstacleABAJO;
+
+//cuadrados
+//abajo izquierda
+var abajo1;
+var abajo2;
+var abajo3;
+//abajo derecha
+var abajo4;
+var abajo5;
+var abajo6;
+var abajo7;
+//arriba izquierda
+var arriba0;
+var arriba1;
+var arriba2;
+var arriba3;
+//arriba derecha
+var arriba4;
+var arriba5;
+var arriba6;
+var arriba7;
+
+
+function startGame() {
+
+
+
+	   
+//ratas
+    copito = new component(50, 50, "hamster.png", 225, 225, "image");
+    rayas = new component (50, 50, "hamster2.png", 225, 225, "image");
+	    
+//fondo
+	   myBackground = new component(900, 506, "circuito.png", 0, 0, "image");
+//gravilla
+	//rectangulos
+    myObstacleDERECHA = new component(900, 50, "transparent", 450, 475);
+    myObstacleARRIBA = new component(900, 50, "transparent", 450, -15);
+    myObstacleIZQUIERDA = new component(50, 506, "transparent", 875, 225);
+    myObstacleABAJO = new component(50, 506, "transparent", -25, 225);
+    //cuadrados
+    //abajo izq
+	abajo0 = new component(100, 75, "red", 0, 355);
+    abajo1 = new component(100, 75, "red", 50, 385);
+    abajo2 = new component(100, 75, "red", 125, 405);
+    abajo3 = new component(100, 75, "red", 175, 420);
+    //abajo der
+    abajo4 = new component(100, 75, "red", 610, 420);
+    abajo5 = new component(100, 75, "red", 650, 405);
+    abajo6 = new component(100, 75, "red", 725, 385);
+    abajo7 = new component(100, 75, "red", 775, 345);
+    //arriba izq
+	arriba0 = new component(100, 75, "red", 0, 75);
+    arriba1 = new component(100, 75, "red", 175, 0);
+    arriba2 = new component(100, 75, "red", 125, 25);
+    arriba3 = new component(100, 75, "red", 50, 50);
+    //arriba der
+    arriba4 = new component(100, 75, "red", 610, 0);
+    arriba5 = new component(100, 75, "red", 650,25);
+    arriba6 = new component(100, 75, "red", 725, 50);
+    arriba7 = new component(100, 75, "red", 775, 75);
+    
+    myGameArea.start();
+}
+
+var myGameArea = {
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.width = 900;
+        this.canvas.height = 506;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.frameNo = 0;
+        this.interval = setInterval(updateGameArea, 20);
+        window.addEventListener('keydown', function (e) {
+            e.preventDefault();
+            myGameArea.keys = (myGameArea.keys || []);
+            myGameArea.keys[e.keyCode] = (e.type == "keydown");
+        })
+        window.addEventListener('keyup', function (e) {
+            myGameArea.keys[e.keyCode] = (e.type == "keydown");
+        })
+    },
+    stop : function() {
+        clearInterval(this.interval);
+    },
+    clear : function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    },
+      stop : function() {
+    clearInterval(this.interval);
+  }
+}
+
+function component(width, height, color, x, y, type) {
+
+this.type = type;
+    if (type == "image") {
+    this.image = new Image();
+    this.image.src = color;
+  }
+  
+   this.width = width;
+    this.height = height;
+    this.speedX = 0;
+    this.speedY = 0;
+    this.x = x;
+    this.y = y;
+    this.update = function() {
+        ctx = myGameArea.context;
+        if (type == "image") {
+      ctx.drawImage(this.image,
+        this.x,
+        this.y,
+        this.width, this.height);
+    } else {
+      ctx.fillStyle = color;
+      ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+
+     
+    }
+	
+    this.newPos = function() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+    }
+
+      this.crashWith = function(otherobj) {
+    var myleft = this.x - (this.width / 2);
+    var myright = this.x + (this.width / 2);
+    var mytop = this.y - (this.height / 2);
+    var mybottom = this.y + (this.height / 2);
+    var otherleft = otherobj.x - (otherobj.width / 2);
+    var otherright = otherobj.x + (otherobj.width / 2);
+    var othertop = otherobj.y - (otherobj.height / 2)
+    var otherbottom = otherobj.y + (otherobj.height / 2);
+    var crash = true;
+    if ((mybottom < othertop) ||
+    (mytop > otherbottom) ||
+    (myright < otherleft) ||
+    (myleft > otherright)) {
+      crash = false;
+    }
+    return crash;
+  }
+
+
+}
+
+function updateGameArea() {
+
+ if (copito.crashWith(myObstacleDERECHA)||copito.crashWith(myObstacleARRIBA)||copito.crashWith(myObstacleIZQUIERDA)||copito.crashWith(myObstacleABAJO)||copito.crashWith(abajo0)||copito.crashWith(abajo1)||copito.crashWith(abajo2)||copito.crashWith(abajo3)||copito.crashWith(abajo4)||copito.crashWith(abajo5)||copito.crashWith(abajo6)||copito.crashWith(abajo7)){
+ 
+
+    if (myGameArea.keys && myGameArea.keys[37]) {copito.speedX = 2; }
+  if (myGameArea.keys && myGameArea.keys[39]) {copito.speedX = -2; }
+  if (myGameArea.keys && myGameArea.keys[38]) {copito.speedY = 2; }
+  if (myGameArea.keys && myGameArea.keys[40]) {copito.speedY = -2; }
+    copito.newPos();
+    copito.update();
+	
+	
+   
+
+    }
+ if (rayas.crashWith(myObstacleDERECHA)||rayas.crashWith(myObstacleARRIBA)||rayas.crashWith(myObstacleIZQUIERDA)||rayas.crashWith(myObstacleABAJO)){
+ 
+ 	
+    if (myGameArea.keys && myGameArea.keys[65]) {rayas.speedX = 2; }
+  if (myGameArea.keys && myGameArea.keys[68]) {rayas.speedX = -2; }
+  if (myGameArea.keys && myGameArea.keys[87]) {rayas.speedY = 2; }
+  if (myGameArea.keys && myGameArea.keys[83]) {rayas.speedY = -2; }
+  
+    rayas.newPos();
+   	rayas.update();
+
+  
+  } 
+    myGameArea.clear();
+	
+    //fondo
+	myBackground.newPos();
+	myBackground.update();
+    //rectangulos
+    myObstacleDERECHA.update();
+    myObstacleARRIBA.update();
+    myObstacleIZQUIERDA.update();
+    myObstacleABAJO.update();
+    //cuadrados
+	abajo0.update();
+    abajo1.update();
+    abajo2.update();
+    abajo3.update();
+	abajo4.update();
+    abajo5.update();
+    abajo6.update();
+    abajo7.update();
+	arriba0.update();
+    arriba1.update();
+    arriba2.update();
+    arriba3.update();
+	arriba4.update();
+    arriba5.update();
+    arriba6.update();
+    arriba7.update();
+    //ratas
+    copito.moveAngle = 0;
+    copito.speed = 0;
+    rayas.moveAngle = 0;
+    rayas.speed = 0;
+ 	rayas.speedX = 0;
+ 	rayas.speedY = 0;
+    copito.speedX = 0;
+   	copito.speedY = 0;
+
+
+
+
+    if (myGameArea.keys && myGameArea.keys[37]) {copito.speedX = -4; }
+  if (myGameArea.keys && myGameArea.keys[39]) {copito.speedX = 4; }
+  if (myGameArea.keys && myGameArea.keys[38]) {copito.speedY = -4; }
+  if (myGameArea.keys && myGameArea.keys[40]) {copito.speedY = 4; }
+    copito.newPos();
+    copito.update();
+
+
+      if (myGameArea.keys && myGameArea.keys[65]) {rayas.speedX = -4; }
+  if (myGameArea.keys && myGameArea.keys[68]) {rayas.speedX = 4; }
+  if (myGameArea.keys && myGameArea.keys[87]) {rayas.speedY = -4; }
+  if (myGameArea.keys && myGameArea.keys[83]) {rayas.speedY = 4; }
+    rayas.newPos();
+    rayas.update();
+  }
+
+
+  
+</script>
+
+</body>
+</html>
+
+
