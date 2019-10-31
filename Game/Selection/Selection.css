@@ -1,0 +1,41 @@
+body {
+	background-image: url("Imagen/Background.jpeg");
+	background-size: 100%;
+	background-position: 0% 18%;
+	background-repeat: no-repeat;
+	background-color: rgb(45, 45, 45);
+	font-family: "Times New Roman", Times, serif;
+}
+
+h1 {
+	color: rgb(2, 205, 255);
+	text-align: center;
+	margin-top: 60px;
+	margin-bottom: 15px;
+	font-size: 50px;
+	text-decoration: overline underline;
+}
+
+a {
+	position: fixed;
+	left: 88%;
+	top: 5%;
+}
+
+a:link, a:visited {
+	color: white;
+	text-decoration: none;
+	border-style: groove;
+	border-width: 4px;
+	padding: 10px;
+	border-radius: 100px;
+}
+
+a:hover, a:active {
+	color: rgb(2, 205, 255);
+	text-decoration: none;
+	border-width: 6px;
+	border-style: groove;
+	padding: 7px;
+	border-color: rgb(2, 205, 255);
+}
