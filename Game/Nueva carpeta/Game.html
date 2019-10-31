@@ -91,13 +91,13 @@ function startGame() {
 	   myBackground = new component(900, 506, "circuito.png", 0, 0, "image");
 //gravilla
 	//rectangulos
-    myObstacleDERECHA = new component(50, 506, "transparent", 14, 225);
-    myObstacleARRIBA = new component(900, 50, "transparent", 450, 10);
-    myObstacleIZQUIERDA = new component(50, 506, "transparent", 845, 225);
-    myObstacleABAJO = new component(900, 50, "transparent", 450, 460);
+    myObstacleDERECHA = new component(900, 50, "transparent", 450, 475);
+    myObstacleARRIBA = new component(900, 50, "transparent", 450, -15);
+    myObstacleIZQUIERDA = new component(50, 506, "transparent", 875, 225);
+    myObstacleABAJO = new component(50, 506, "transparent", -25, 225);
     //cuadrados
     //abajo izq
-	abajo0 = new component(100, 75, "red", 10, 345);
+	abajo0 = new component(100, 75, "red", 0, 355);
     abajo1 = new component(100, 75, "red", 50, 385);
     abajo2 = new component(100, 75, "red", 125, 405);
     abajo3 = new component(100, 75, "red", 175, 420);
@@ -174,7 +174,8 @@ this.type = type;
       ctx.fillStyle = color;
       ctx.fillRect(this.x, this.y, this.width, this.height);
     }
-    
+
+     
     }
 	
     this.newPos = function() {
@@ -288,10 +289,11 @@ function updateGameArea() {
     rayas.newPos();
     rayas.update();
   }
+
+
+  
 </script>
-<a href="../MainPage/MainPage.html">Hasierara itzuli</a>
 
 </body>
 </html>
-
 
