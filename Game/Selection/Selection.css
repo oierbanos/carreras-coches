@@ -22,32 +22,32 @@ h2 {
 }
 
 img {
-	max-width: 300px;
-	max-height: 300px;
+	width: 400px;
+	height: 250px;
 }
 
 span#OnePlayer{
 	position: fixed;
-	left: 5%;
+	left: 10%;
 	top: 22%;
 }
 
 span#TwoPlayers{
 	position: fixed;
-	left: 40%;
+	left: 35%;
 	top: 22%;
 }
 
 span#ThreePlayers{
 	position: fixed;
-	left: 70%;
+	left: 60%;
 	top: 22%;
 }
 
 a {
 	position: relative;
-	left: -170px;
-	bottom: -15px;
+	left: -300px;
+	bottom: -25px;
 }
 
 a#Itxuli {
