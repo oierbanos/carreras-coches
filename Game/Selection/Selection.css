@@ -7,18 +7,6 @@ body {
 	font-family: "Times New Roman", Times, serif;
 }
 
-div {
-	position: relative;
-}
-
-div#title {
-	max-width: 600px;
-	margin: auto;
-	font-size: 28px;
-	text-align: center;
-	display: block;
-}
-
 h1 {
 	color: rgb(2, 205, 255);
 	text-align: center;
@@ -28,36 +16,44 @@ h1 {
 	text-decoration: overline underline;
 }
 
-img#left {
-	max-width: 60px;
-	max-height: 60px;
-	position: relative;
-	left: -170px;
-	top: 120px;
+h2 {
+	color: rgb(170, 170, 170);
+	text-decoration: underline;
 }
 
-img#right {
-	max-width: 60px;
-	max-height: 60px;
-	position: relative;
-	left: 170px;
-	top: -78px;
-	transform: rotateY(180deg)
+img {
+	width: 400px;
+	height: 250px;
 }
 
-div#links {
-	max-width: 300px;
-	margin: auto;
-	font-size: 28px;
-	text-align: center;
-	position: relative;
-	top: -20px;
+span#OnePlayer{
+	position: fixed;
+	left: 10%;
+	top: 22%;
 }
 
-span.Zeldas {
-	display: block;
-	margin-bottom: 45px;
-	max-width: 300px;
+span#TwoPlayers{
+	position: fixed;
+	left: 35%;
+	top: 22%;
+}
+
+span#ThreePlayers{
+	position: fixed;
+	left: 60%;
+	top: 22%;
+}
+
+a {
+	position: relative;
+	left: -300px;
+	bottom: -25px;
+}
+
+a#Itxuli {
+	position: fixed;
+	left: 88%;
+	bottom: 3%;
 }
 
 a:link, a:visited {

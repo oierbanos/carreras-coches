@@ -16,6 +16,16 @@ h1 {
 	font-size: 50px;
 }
 
+div#Player1 {
+	position: relative;
+	left: -50px;
+}
+
+div#Player2 {
+	position: relative;
+	left: -120px;
+}
+
 p.key{
 	font-size: 50px;
 	border-width: 10px;
@@ -45,6 +55,8 @@ h2#Player1 {
 
 span#Player1 {
 	text-align: center;
+	position: relative;
+	left: -50px;
 }
 
 p#w{
@@ -106,6 +118,42 @@ img#right{
 	top: -350px;
 }
 
+h2#Player3 {
+	position: relative;
+	top: -950px;
+	left: 880px;
+}
+
+span#Player3 {
+	text-align: center;
+	position: relative;
+	top: -980px;
+	left: 780px;
+}
+
+p#i{
+	position: relative;
+	left: 200px;
+}
+
+p#j{
+	position: relative;
+	left: 120px;
+	top: -40px;
+}
+
+p#k{
+	position: relative;
+	left: 200px;
+	top: -160px;
+}
+
+p#l{
+	position: relative;
+	left: 280px;
+	top: -280px;
+}
+
 span#Letrak1{
 	font-size: 18px;
 	font-weight: Bold;
@@ -122,9 +170,17 @@ span#Letrak2{
 	right: -600px;
 }
 
+span#Letrak3{
+	font-size: 18px;
+	font-weight: Bold;
+	position: relative;
+	top: -1280px;
+	right: -880px;
+}
+
 a {
 	position: relative;
-	top: -540px;
+	top: -1250px;
 }
 
 a:link, a:visited {
