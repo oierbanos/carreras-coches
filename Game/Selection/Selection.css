@@ -16,10 +16,44 @@ h1 {
 	text-decoration: overline underline;
 }
 
+h2 {
+	color: rgb(170, 170, 170);
+	text-decoration: underline;
+}
+
+img {
+	max-width: 300px;
+	max-height: 300px;
+}
+
+span#OnePlayer{
+	position: fixed;
+	left: 5%;
+	top: 22%;
+}
+
+span#TwoPlayers{
+	position: fixed;
+	left: 40%;
+	top: 22%;
+}
+
+span#ThreePlayers{
+	position: fixed;
+	left: 70%;
+	top: 22%;
+}
+
+a {
+	position: relative;
+	left: -170px;
+	bottom: -15px;
+}
+
 a#Itxuli {
 	position: fixed;
 	left: 88%;
-	top: 5%;
+	bottom: 3%;
 }
 
 a:link, a:visited {
