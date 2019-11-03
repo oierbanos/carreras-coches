@@ -57,6 +57,7 @@
 
 //RATAS
 var copito;
+
 //fondo
 var myBackground;
 //Rectangulos largos
@@ -92,7 +93,8 @@ function startGame() {
 
 	   
 //ratas
-    copito = new component(50, 50, "copitoRIGHT.png", 370, 110, "image");
+    copito = new component(50, 50, "copitoRIGHT.png", 370, 100, "image");
+   
 	    
 //fondo
 	   myBackground = new component(900, 506, "circuito.png", 0, 0, "image");
@@ -102,30 +104,30 @@ function startGame() {
     myObstacleARRIBA = new component(900, 50, "transparent", 450, -15);
     myObstacleIZQUIERDA = new component(50, 506, "transparent", 875, 225);
     myObstacleABAJO = new component(50, 506, "transparent", -25, 225);
-	
     //cuadrados
     //abajo izq
-	abajo0 = new component(100, 75, "red", 0, 355);
-    abajo1 = new component(100, 75, "red", 50, 385);
-    abajo2 = new component(100, 75, "red", 125, 405);
-    abajo3 = new component(100, 75, "red", 175, 420);
+	abajo0 = new component(100, 75, "transparent", -5, 355);
+    abajo1 = new component(100, 75, "transparent", 45, 400);
+    abajo2 = new component(100, 75, "transparent", 115, 435);
+    abajo3 = new component(100, 75, "transparent", 175, 460);
     //abajo der
-    abajo4 = new component(100, 75, "red", 610, 420);
-    abajo5 = new component(100, 75, "red", 650, 405);
-    abajo6 = new component(100, 75, "red", 725, 385);
-    abajo7 = new component(100, 75, "red", 775, 345);
+    abajo4 = new component(100, 75, "transparent", 710, 460);
+    abajo5 = new component(100, 75, "transparent", 750, 435);
+    abajo6 = new component(100, 75, "transparent", 795, 400);
+    abajo7 = new component(100, 75, "transparent", 840, 355);
     //arriba izq
-	arriba0 = new component(100, 75, "red", 0, 75);
-    arriba1 = new component(100, 75, "red", 175, 0);
-    arriba2 = new component(100, 75, "red", 125, 25);
-    arriba3 = new component(100, 75, "red", 50, 50);
+    arriba0 = new component(100, 75, "transparent", 160, -15);
+    arriba1 = new component(100, 75, "transparent", 110, 5);
+    arriba2 = new component(100, 75, "transparent", 45, 45);
+	arriba3 = new component(100, 75, "transparent", -5, 90);
     //arriba der
-    arriba4 = new component(100, 75, "red", 610, 0);
-    arriba5 = new component(100, 75, "red", 650,25);
-    arriba6 = new component(100, 75, "red", 725, 50);
-    arriba7 = new component(100, 75, "red", 775, 75);
-	
+    arriba4 = new component(100, 75, "transparent", 660, -15);
+    arriba5 = new component(100, 75, "transparent", 690, 5);
+    arriba6 = new component(100, 75, "transparent", 785, 45);
+    arriba7 = new component(100, 75, "transparent", 850, 95);
+    
     myGameArea.start();
+
 }
 
 var myGameArea = {
@@ -215,9 +217,10 @@ this.type = type;
 
 function updateGameArea() {
 
- if (copito.crashWith(myObstacleDERECHA)||copito.crashWith(myObstacleARRIBA)||copito.crashWith(myObstacleIZQUIERDA)||copito.crashWith(myObstacleABAJO)||copito.crashWith(abajo0)||copito.crashWith(abajo1)||copito.crashWith(abajo2)||copito.crashWith(abajo3)||copito.crashWith(abajo4)||copito.crashWith(abajo5)||copito.crashWith(abajo6)||copito.crashWith(abajo7)){
+ if (copito.crashWith(myObstacleDERECHA)||copito.crashWith(myObstacleARRIBA)||copito.crashWith(myObstacleIZQUIERDA)||copito.crashWith(myObstacleABAJO)||copito.crashWith(abajo0)||copito.crashWith(abajo1)||copito.crashWith(abajo2)||copito.crashWith(abajo3)||copito.crashWith(abajo4)||copito.crashWith(abajo5)||copito.crashWith(abajo6)||copito.crashWith(abajo7)||copito.crashWith(arriba0)||copito.crashWith(arriba1)||copito.crashWith(arriba2)||copito.crashWith(arriba3)||copito.crashWith(arriba4)||copito.crashWith(arriba5)||copito.crashWith(arriba6)||copito.crashWith(arriba7)){
  
-  if (myGameArea.keys && myGameArea.keys[37]) {copito.speedX = 2; 
+
+    if (myGameArea.keys && myGameArea.keys[37]) {copito.speedX = 2; 
 	copito.image.src = "copitoLEFT.png";}
   if (myGameArea.keys && myGameArea.keys[39]) {copito.speedX = -2; 
   copito.image.src = "copitoRIGHT.png";}
@@ -227,9 +230,13 @@ function updateGameArea() {
   copito.image.src = "copitoDOWN.png";}
     copito.newPos();
     copito.update();
- }
+	
+	
+   
 
-    myGameArea.clear();
+    }
+ 
+  myGameArea.clear();
 	
     //fondo
 	myBackground.newPos();
@@ -265,7 +272,7 @@ function updateGameArea() {
 
 
 
-   if (myGameArea.keys && myGameArea.keys[37]) {copito.speedX = -4; 
+ if (myGameArea.keys && myGameArea.keys[37]) {copito.speedX = -4; 
 	copito.image.src = "copitoLEFT.png";}
   if (myGameArea.keys && myGameArea.keys[39]) {copito.speedX = 4; 
   copito.image.src = "copitoRIGHT.png";}
@@ -275,11 +282,12 @@ function updateGameArea() {
   copito.image.src = "copitoDOWN.png";}
     copito.newPos();
     copito.update();
-	
-  }
+
+}
+   
 </script>
 
-	<a id="Refress" href="GameSolo.html">Hasi Berriro</a>
+	<a id="Refress" href="Game.html">Hasi Berriro</a>
 	<a id="Itxuli" href="../Selection/Selection.html">Hasierara itzuli</a>
 
 </body>
