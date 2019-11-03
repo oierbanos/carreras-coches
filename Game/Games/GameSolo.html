@@ -92,7 +92,7 @@ function startGame() {
 
 	   
 //ratas
-    copito = new component(50, 50, "hamster.png", 370, 110, "image");
+    copito = new component(50, 50, "copitoRIGHT.png", 370, 110, "image");
 	    
 //fondo
 	   myBackground = new component(900, 506, "circuito.png", 0, 0, "image");
@@ -217,14 +217,17 @@ function updateGameArea() {
 
  if (copito.crashWith(myObstacleDERECHA)||copito.crashWith(myObstacleARRIBA)||copito.crashWith(myObstacleIZQUIERDA)||copito.crashWith(myObstacleABAJO)||copito.crashWith(abajo0)||copito.crashWith(abajo1)||copito.crashWith(abajo2)||copito.crashWith(abajo3)||copito.crashWith(abajo4)||copito.crashWith(abajo5)||copito.crashWith(abajo6)||copito.crashWith(abajo7)){
  
-
-    if (myGameArea.keys && myGameArea.keys[37]) {copito.speedX = 2; }
-  if (myGameArea.keys && myGameArea.keys[39]) {copito.speedX = -2; }
-  if (myGameArea.keys && myGameArea.keys[38]) {copito.speedY = 2; }
-  if (myGameArea.keys && myGameArea.keys[40]) {copito.speedY = -2; }
+  if (myGameArea.keys && myGameArea.keys[37]) {copito.speedX = 2; 
+	copito.image.src = "copitoLEFT.png";}
+  if (myGameArea.keys && myGameArea.keys[39]) {copito.speedX = -2; 
+  copito.image.src = "copitoRIGHT.png";}
+  if (myGameArea.keys && myGameArea.keys[38]) {copito.speedY = 2; 
+  copito.image.src = "copitoUP.png";}
+  if (myGameArea.keys && myGameArea.keys[40]) {copito.speedY = -2; 
+  copito.image.src = "copitoDOWN.png";}
     copito.newPos();
     copito.update();
-    }
+ }
 
     myGameArea.clear();
 	
@@ -262,12 +265,17 @@ function updateGameArea() {
 
 
 
-    if (myGameArea.keys && myGameArea.keys[37]) {copito.speedX = -4; }
-  if (myGameArea.keys && myGameArea.keys[39]) {copito.speedX = 4; }
-  if (myGameArea.keys && myGameArea.keys[38]) {copito.speedY = -4; }
-  if (myGameArea.keys && myGameArea.keys[40]) {copito.speedY = 4; }
+   if (myGameArea.keys && myGameArea.keys[37]) {copito.speedX = -4; 
+	copito.image.src = "copitoLEFT.png";}
+  if (myGameArea.keys && myGameArea.keys[39]) {copito.speedX = 4; 
+  copito.image.src = "copitoRIGHT.png";}
+  if (myGameArea.keys && myGameArea.keys[38]) {copito.speedY = -4; 
+  copito.image.src = "copitoUP.png";}
+  if (myGameArea.keys && myGameArea.keys[40]) {copito.speedY = 4; 
+  copito.image.src = "copitoDOWN.png";}
     copito.newPos();
     copito.update();
+	
   }
 </script>
 
