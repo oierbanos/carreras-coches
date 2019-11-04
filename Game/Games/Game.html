@@ -86,6 +86,15 @@ var arriba4;
 var arriba5;
 var arriba6;
 var arriba7;
+//checkpoints y meta
+var c1;
+var c1kont;
+var c2;
+var c2kont;
+var meta;
+var metakont;
+var copitokont;
+var rayaskont;
 
 function startGame() {
 
@@ -125,7 +134,16 @@ function startGame() {
     arriba5 = new component(100, 75, "transparent", 690, 5);
     arriba6 = new component(100, 75, "transparent", 785, 45);
     arriba7 = new component(100, 75, "transparent", 850, 95);
-    
+    //checkpoints y meta
+	c1 = new component(5, 220, "transparent", 225, 350);
+	c2 = new component(5, 220, "transparent", 575, 350);
+	meta = new component(5, 220, "transparent", 405, 30);
+	c1kont = 0;
+	c2kont = 0;
+	metakont = 0;
+	copitokont = 0;
+	rayaskont = 0;
+	
     myGameArea.start();
 
 }
@@ -215,6 +233,10 @@ this.type = type;
 
 }
 
+
+
+
+
 function updateGameArea() {
 
  if (copito.crashWith(myObstacleDERECHA)||copito.crashWith(myObstacleARRIBA)||copito.crashWith(myObstacleIZQUIERDA)||copito.crashWith(myObstacleABAJO)||copito.crashWith(abajo0)||copito.crashWith(abajo1)||copito.crashWith(abajo2)||copito.crashWith(abajo3)||copito.crashWith(abajo4)||copito.crashWith(abajo5)||copito.crashWith(abajo6)||copito.crashWith(abajo7)||copito.crashWith(arriba0)||copito.crashWith(arriba1)||copito.crashWith(arriba2)||copito.crashWith(arriba3)||copito.crashWith(arriba4)||copito.crashWith(arriba5)||copito.crashWith(arriba6)||copito.crashWith(arriba7)){
@@ -252,6 +274,27 @@ function updateGameArea() {
 
   
   } 
+  
+	if (copito.crashWith(c1)){
+		this.c1kont = 1;}
+	if (rayas.crashWith(c1)){
+		this.c1kont = 2;}
+	if (copito.crashWith(c2)){
+		this.c2kont = 1;}
+	if ((copito.crashWith(meta) || rayas.crashWith(meta)) && ((this.c1kont == 1 && this.c2kont == 1) || (this.c1kont == 2 && this.c2kont == 2))){
+		this.metakont++;
+		if (this.c1 == 1 && this.c2 == 1){
+			copitokont++;
+			}
+		if (this.c1 == 2 && this.c2 == 2){
+			rayaskont++;
+			}
+		this.c1kont = 0;
+		this.c2kont = 0;
+		}
+	if((copito.crashWith(meta) || rayas.crashWith(meta)) && metakont == 3){
+		myGameArea.stop(); }
+ 
   myGameArea.clear();
 	
     //fondo
@@ -288,6 +331,10 @@ function updateGameArea() {
  	rayas.speedY = 0;
     copito.speedX = 0;
    	copito.speedY = 0;
+	//checkpoints y meta
+	c1.update();
+	c2.update();
+	meta.update();
 
 
 
