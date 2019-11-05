@@ -88,11 +88,13 @@ var arriba6;
 var arriba7;
 //checkpoints y meta
 var c1;
-var c1kont;
+var c1kontra;
+var c1kontco
 var c2;
 var c2kont;
+var c2kontra;
+var c2kontco;
 var meta;
-var metakont;
 var copitokont;
 var rayaskont;
 
@@ -138,9 +140,10 @@ function startGame() {
 	c1 = new component(5, 220, "transparent", 225, 350);
 	c2 = new component(5, 220, "transparent", 575, 350);
 	meta = new component(5, 220, "transparent", 405, 30);
-	c1kont = 0;
-	c2kont = 0;
-	metakont = 0;
+	this.c1kontco = 0;
+	this.c1kontra = 0;
+	this.c2kontra = 0;
+	this.c2kontco = 0;
 	copitokont = 0;
 	rayaskont = 0;
 	
@@ -242,13 +245,13 @@ function updateGameArea() {
  if (copito.crashWith(myObstacleDERECHA)||copito.crashWith(myObstacleARRIBA)||copito.crashWith(myObstacleIZQUIERDA)||copito.crashWith(myObstacleABAJO)||copito.crashWith(abajo0)||copito.crashWith(abajo1)||copito.crashWith(abajo2)||copito.crashWith(abajo3)||copito.crashWith(abajo4)||copito.crashWith(abajo5)||copito.crashWith(abajo6)||copito.crashWith(abajo7)||copito.crashWith(arriba0)||copito.crashWith(arriba1)||copito.crashWith(arriba2)||copito.crashWith(arriba3)||copito.crashWith(arriba4)||copito.crashWith(arriba5)||copito.crashWith(arriba6)||copito.crashWith(arriba7)){
  
 
-    if (myGameArea.keys && myGameArea.keys[37]) {copito.speedX = 2; 
+    if (myGameArea.keys && myGameArea.keys[37]) {copito.speedX = 4; 
 	copito.image.src = "copitoLEFT.png";}
-  if (myGameArea.keys && myGameArea.keys[39]) {copito.speedX = -2; 
+  if (myGameArea.keys && myGameArea.keys[39]) {copito.speedX = -4; 
   copito.image.src = "copitoRIGHT.png";}
-  if (myGameArea.keys && myGameArea.keys[38]) {copito.speedY = 2; 
+  if (myGameArea.keys && myGameArea.keys[38]) {copito.speedY = 4; 
   copito.image.src = "copitoUP.png";}
-  if (myGameArea.keys && myGameArea.keys[40]) {copito.speedY = -2; 
+  if (myGameArea.keys && myGameArea.keys[40]) {copito.speedY = -4; 
   copito.image.src = "copitoDOWN.png";}
     copito.newPos();
     copito.update();
@@ -260,40 +263,43 @@ function updateGameArea() {
  if (rayas.crashWith(myObstacleDERECHA)||rayas.crashWith(myObstacleARRIBA)||rayas.crashWith(myObstacleIZQUIERDA)||rayas.crashWith(myObstacleABAJO) ||rayas.crashWith(abajo0)||rayas.crashWith(abajo1)||rayas.crashWith(abajo2)||rayas.crashWith(abajo3)||rayas.crashWith(abajo4)||rayas.crashWith(abajo5)||rayas.crashWith(abajo6)||rayas.crashWith(abajo7)||rayas.crashWith(arriba0)||rayas.crashWith(arriba1)||rayas.crashWith(arriba2)||rayas.crashWith(arriba3)||rayas.crashWith(arriba4)||rayas.crashWith(arriba5)||rayas.crashWith(arriba6)||rayas.crashWith(arriba7)){
  
  	
-    if (myGameArea.keys && myGameArea.keys[65]) {rayas.speedX = 2; 
+    if (myGameArea.keys && myGameArea.keys[65]) {rayas.speedX = 4; 
 	rayas.image.src = "rayasLEFT.png";}
-  if (myGameArea.keys && myGameArea.keys[68]) {rayas.speedX = -2; 
+  if (myGameArea.keys && myGameArea.keys[68]) {rayas.speedX = -4; 
   rayas.image.src = "rayasRIGHT.png";}
-  if (myGameArea.keys && myGameArea.keys[87]) {rayas.speedY = 2; 
+  if (myGameArea.keys && myGameArea.keys[87]) {rayas.speedY = 4; 
   rayas.image.src = "rayasUP.png";}
-  if (myGameArea.keys && myGameArea.keys[83]) {rayas.speedY = -2; 
+  if (myGameArea.keys && myGameArea.keys[83]) {rayas.speedY = -4; 
   rayas.image.src = "rayasDOWN.png";}
-  
     rayas.newPos();
    	rayas.update();
-
-  
-  } 
+	
+	} 
   
 	if (copito.crashWith(c1)){
-		this.c1kont = 1;}
+		this.c1kontco = 1;}
 	if (rayas.crashWith(c1)){
-		this.c1kont = 2;}
+		this.c1kontra = 1;}
 	if (copito.crashWith(c2)){
-		this.c2kont = 1;}
-	if ((copito.crashWith(meta) || rayas.crashWith(meta)) && ((this.c1kont == 1 && this.c2kont == 1) || (this.c1kont == 2 && this.c2kont == 2))){
-		this.metakont++;
-		if (this.c1 == 1 && this.c2 == 1){
-			copitokont++;
+		this.c2kontco = 1;}
+	if (rayas.crashWith(c2)){
+		this.c1kontra = 1;}
+	if (copito.crashWith(meta) || rayas.crashWith(meta)){
+		if (this.c1kontco == 1 && this.c2kontco == 1){
+			this.copitokont++;
+			this.c1kontco = 0;
+			this.c2kontco = 0;
 			}
-		if (this.c1 == 2 && this.c2 == 2){
-			rayaskont++;
+		if (this.c1kontra == 1 && this.c2kontra == 1){
+			this.rayaskont++;
+			this.c1kontra = 0;
+			this.c2kontra = 0;
 			}
-		this.c1kont = 0;
-		this.c2kont = 0;
+		
 		}
-	if((copito.crashWith(meta) || rayas.crashWith(meta)) && metakont == 3){
+	if(rayaskont == 3 || copitokont == 3){
 		myGameArea.stop(); }
+		
  
   myGameArea.clear();
 	
@@ -339,25 +345,26 @@ function updateGameArea() {
 
 
 
- if (myGameArea.keys && myGameArea.keys[37]) {copito.speedX = -4; 
+
+    if (myGameArea.keys && myGameArea.keys[37]) {copito.speedX = -7; 
 	copito.image.src = "copitoLEFT.png";}
-  if (myGameArea.keys && myGameArea.keys[39]) {copito.speedX = 4; 
+  if (myGameArea.keys && myGameArea.keys[39]) {copito.speedX = 7; 
   copito.image.src = "copitoRIGHT.png";}
-  if (myGameArea.keys && myGameArea.keys[38]) {copito.speedY = -4; 
+  if (myGameArea.keys && myGameArea.keys[38]) {copito.speedY = -6; 
   copito.image.src = "copitoUP.png";}
-  if (myGameArea.keys && myGameArea.keys[40]) {copito.speedY = 4; 
+  if (myGameArea.keys && myGameArea.keys[40]) {copito.speedY = 6; 
   copito.image.src = "copitoDOWN.png";}
     copito.newPos();
     copito.update();
 
 
-      if (myGameArea.keys && myGameArea.keys[65]) {rayas.speedX = -4; 
+      if (myGameArea.keys && myGameArea.keys[65]) {rayas.speedX = -7; 
 	  rayas.image.src = "rayasLEFT.png";}
-  if (myGameArea.keys && myGameArea.keys[68]) {rayas.speedX = 4; 
+  if (myGameArea.keys && myGameArea.keys[68]) {rayas.speedX = 7; 
   rayas.image.src = "rayasRIGHT.png";}
-  if (myGameArea.keys && myGameArea.keys[87]) {rayas.speedY = -4; 
+  if (myGameArea.keys && myGameArea.keys[87]) {rayas.speedY = -6; 
   rayas.image.src = "rayasUP.png";}
-  if (myGameArea.keys && myGameArea.keys[83]) {rayas.speedY = 4; 
+  if (myGameArea.keys && myGameArea.keys[83]) {rayas.speedY = 6; 
   rayas.image.src = "rayasDOWN.png";}
     rayas.newPos();
     rayas.update();
