@@ -89,11 +89,14 @@ var arriba6;
 var arriba7;
 //checkpoints y meta
 var c1;
-var c1kont;
+var c1kontco;
+var c1kontra;
+var c2kontra;
+var c2kontco;
+var c1kontca;
+var c2kontca;
 var c2;
-var c2kont;
 var meta;
-var metakont;
 var copitokont;
 var rayaskont;
 var canelonkont;
@@ -140,9 +143,12 @@ function startGame() {
 	c1 = new component(5, 220, "transparent", 225, 350);
 	c2 = new component(5, 220, "transparent", 575, 350);
 	meta = new component(5, 220, "transparent", 405, 30);
-	c1kont = 0;
-	c2kont = 0;
-	metakont = 0;
+	this.c1kontco = 0;
+	this.c1kontra = 0;
+	this.c2kontra = 0;
+	this.c2kontco = 0;
+	this.c1kontca = 0;
+	this.c2kontca = 0;
 	copitokont = 0;
 	rayaskont = 0;
 	canelonkont=0;
@@ -293,34 +299,38 @@ function updateGameArea() {
   }
   
   	if (copito.crashWith(c1)){
-		this.c1kont = 1;}
+		this.c1kontco = 1;}
 	if (rayas.crashWith(c1)){
-		this.c1kont = 2;}
+		this.c1kontra = 1;}
 	if (canelon.crashWith(c1)){
-		this.c1kont = 3;}
+		this.c1kontca = 1;}
 	if (copito.crashWith(c2)){
-		this.c2kont = 1;}
+		this.c2kontco = 1;}
 	if (rayas.crashWith(c2)){
-		this.c2kont = 2;}
+		this.c2kontra = 1;}
 	if (canelon.crashWith(c2)){
-		this.c2kont = 3;}
-	if ((copito.crashWith(meta) || rayas.crashWith(meta)) && ((this.c1kont == 1 && this.c2kont == 1) || (this.c1kont == 2 && this.c2kont == 2) || (this.c1kont == 3 && this.c2kont == 3))){
-		this.metakont++;
-		if (this.c1 == 1 && this.c2 == 1){
-			copitokont++;
+		this.c2kontca = 1;}
+	if (copito.crashWith(meta) || rayas.crashWith(meta) || canelon.crashWith(meta)){
+		if (this.c1kontco == 1 && this.c2kontco == 1){
+			this.copitokont++;
+			this.c1kontco = 0;
+			this.c2kontco = 0;
 			}
-		if (this.c1 == 2 && this.c2 == 2){
-			rayaskont++;
+		if (this.c1kontra == 1 && this.c2kontra == 1){
+			this.rayaskont++;
+			this.c1kontra = 0;
+			this.c2kontra = 0;
 			}
-		if (this.c1 == 3 && this.c2 == 3){
-			canelonkont++;
-			}
-		this.c1kont = 0;
-		this.c2kont = 0;
+			if (this.c1kontca == 1 && this.c2kontca == 1){
+			this.canelonkont++;
+			this.c1kontca = 0;
+			this.c2kontca = 0;}
 		}
-	if((copito.crashWith(meta) || rayas.crashWith(meta) || canelon.crashWith(meta)) && metakont == 3){
+	if(rayaskont == 3 || copitokont == 3){
 		myGameArea.stop(); }
 		
+	if(rayaskont == 3 || copitokont == 3){
+		myGameArea.stop(); }
 		
     myGameArea.clear();
 	
