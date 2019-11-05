@@ -1,0 +1,202 @@
+body {
+	background-color: rgb(85, 85, 85);
+	font-family: "Times New Roman", Times, serif;
+	max-width: 1200px;
+	max-height: 500px;
+	margin: auto;
+	display: block;
+	overflow: hidden;
+}
+
+h1 {
+	color: rgb(2, 205, 255);
+	text-align: center;
+	margin-top: 60px;
+	margin-bottom: 15px;
+	font-size: 50px;
+}
+
+div#Player1 {
+	position: relative;
+	left: -50px;
+}
+
+div#Player2 {
+	position: relative;
+	left: -120px;
+}
+
+p.key{
+	font-size: 50px;
+	border-width: 10px;
+	border-radius: 10px;
+	border-style: double;
+	border-color: black;
+	max-width: 50px;
+	max-height: 50px;
+	color: white;
+}
+
+img.key{
+	font-size: 50px;
+	border-width: 10px;
+	border-radius: 10px;
+	border-style: double;
+	border-color: black;
+	max-width: 50px;
+	max-height: 50px;
+}
+
+h2#Player1 {
+	position: relative;
+	top: 30px;
+	left: 80px;
+}
+
+span#Player1 {
+	text-align: center;
+	position: relative;
+	left: -50px;
+}
+
+p#w{
+	position: relative;
+	left: 200px;
+}
+
+p#a{
+	position: relative;
+	left: 120px;
+	top: -40px;
+}
+
+p#s{
+	position: relative;
+	left: 200px;
+	top: -160px;
+}
+
+p#d{
+	position: relative;
+	left: 280px;
+	top: -280px;
+}
+
+h2#Player2 {
+	position: relative;
+	top: -620px;
+	left: 580px;
+}
+
+span#Player2 {
+	text-align: center;
+	position: relative;
+	top: -200px;
+}
+
+img#up{
+	position: relative;
+	right: -700px;
+	top: -420px;
+}
+
+img#left{
+	position: relative;
+	right: -565px;
+	top: -350px;
+}
+
+img#down{
+	position: relative;
+	right: -572px;
+	top: -350px;
+}
+
+img#right{
+	position: relative;
+	right: -580px;
+	top: -350px;
+}
+
+h2#Player3 {
+	position: relative;
+	top: -950px;
+	left: 880px;
+}
+
+span#Player3 {
+	text-align: center;
+	position: relative;
+	top: -980px;
+	left: 780px;
+}
+
+p#i{
+	position: relative;
+	left: 200px;
+}
+
+p#j{
+	position: relative;
+	left: 120px;
+	top: -40px;
+}
+
+p#k{
+	position: relative;
+	left: 200px;
+	top: -160px;
+}
+
+p#l{
+	position: relative;
+	left: 280px;
+	top: -280px;
+}
+
+span#Letrak1{
+	font-size: 18px;
+	font-weight: Bold;
+	position: relative;
+	top: -300px;
+	right: -70px;
+}
+
+span#Letrak2{
+	font-size: 18px;
+	font-weight: Bold;
+	position: relative;
+	top: -550px;
+	right: -600px;
+}
+
+span#Letrak3{
+	font-size: 18px;
+	font-weight: Bold;
+	position: relative;
+	top: -1280px;
+	right: -880px;
+}
+
+a {
+	position: relative;
+	top: -1250px;
+}
+
+a:link, a:visited {
+	color: white;
+	text-decoration: none;
+	border-style: groove;
+	border-width: 4px;
+	padding: 10px;
+	border-radius: 100px;
+}
+
+a:hover, a:active {
+	color: rgb(2, 205, 255);
+	text-decoration: none;
+	border-width: 6px;
+	border-style: groove;
+	padding: 7px;
+	border-color: rgb(2, 205, 255);
+}
