@@ -281,6 +281,8 @@ function updateGameArea() {
 		this.c1kont = 2;}
 	if (copito.crashWith(c2)){
 		this.c2kont = 1;}
+		if (rayas.crashWith(c2)){
+		this.c1kont = 2;}
 	if ((copito.crashWith(meta) || rayas.crashWith(meta)) && ((this.c1kont == 1 && this.c2kont == 1) || (this.c1kont == 2 && this.c2kont == 2))){
 		this.metakont++;
 		if (this.c1 == 1 && this.c2 == 1){
@@ -294,6 +296,7 @@ function updateGameArea() {
 		}
 	if((copito.crashWith(meta) || rayas.crashWith(meta)) && metakont == 3){
 		myGameArea.stop(); }
+		
  
   myGameArea.clear();
 	
