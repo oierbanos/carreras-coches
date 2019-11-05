@@ -17,6 +17,7 @@ div#title {
 	font-size: 28px;
 	text-align: center;
 	display: block;
+	top: 60px;
 }
 
 h1 {
@@ -33,7 +34,7 @@ img#left {
 	max-height: 60px;
 	position: fixed;
 	left: 35%;
-	top: 8%;
+	top: 18%;
 }
 
 img#right {
@@ -41,7 +42,7 @@ img#right {
 	max-height: 60px;
 	position: fixed;
 	left: 60.5%;
-	top: 8%;
+	top: 18%;
 }
 
 div#links {
